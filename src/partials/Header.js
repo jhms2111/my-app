@@ -7,22 +7,13 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 
 
-//import { makeStyles } from '@mui/material'
-
-
-//const useStyles = makeStyles(() => ({
- //   title: {
-  //      maginLeft: 40,
- //   }
-//}))
-
 
 const Header = () => {
 
     return (
-        <AppBar position="static">
-        <Toolbar>
-          <IconButton
+        <AppBar position="static" >
+        <Toolbar >
+          <IconButton 
             size="large"
             edge="start"
             color="inherit"
