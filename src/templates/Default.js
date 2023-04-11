@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import { makeStyles } from 'tss-react/mui'; 
 
-import Header from "../Header"
+import Header from '../partials/Header'
 
 
     const useStyles = makeStyles()((theme) => {
