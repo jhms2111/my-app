@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import CustomersCard from "../componets/CustomersCard"
+import CustomersCard from "../../componets/CustomersCard"
 import Grid from '@mui/material/Grid'
 
-const Customers = () => {
+const List = () => {
     const [customers, setcustomers] = useState([])
 
 
@@ -16,12 +16,16 @@ const Customers = () => {
         })
     }, [])
 
+        const handleRemoveCustomers =  id  => {
+          axios.delete(`https://reqres.in/api/users/${id}`)
+          .then(() => {
+            const newCustomerState = customers.filter(customer => customer.id !== id )
 
-// xs EXTRA SMALL
-// sm SMALL
-// md MEDIUM
-// lg LARGE
-// xl EXTRA LARGE
+            setcustomers(newCustomerState)
+          })
+
+        }
+
 
     return (
       <>
@@ -30,10 +34,12 @@ const Customers = () => {
           customers.map(item => (
          <Grid item xs={12} md={4}>
           <CustomersCard
+          id={item.id}
           name={item.first_name}
           lastname={item.last_name}
           email={item.email}
           avatar={item.avatar}
+          onRemoveCustomer={handleRemoveCustomers}
         /> 
          </Grid>
           ))
@@ -44,4 +50,4 @@ const Customers = () => {
   }
 
 
-  export default Customers
+  export default List

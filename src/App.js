@@ -5,9 +5,10 @@ import {
 } from 'react-router-dom'
 
 import TemplateDefault from './templates/Default'
-import Customers from './pages/Customers'
+import CustomersList from './pages/Customers/List'
 
 import TemplatePage from './templates/Page'
+import CustomersRegister from './pages/Customers/Register'
 import Home from './pages/Home'
 
 const App = () => {
@@ -15,12 +16,15 @@ const App = () => {
     
     <Router>
       <TemplateDefault>
-      <Switch>
+      <Switch>      
+        <Route path="/customers/add">
+           <TemplatePage title='Cadastro de Clientes' Component={CustomersRegister} />
+        </Route>
         <Route path="/customers">
-           <TemplatePage title='Clientes' Component={Customers} />
+           <TemplatePage title='Lista de Clientes' Component={CustomersList} />
         </Route>
         <Route path="/">
-           <TemplatePage title='Pagina inicial' Component={Home} />   
+           <TemplatePage title='Pagina Inicial' Component={Home} />   
         </Route>
       </Switch>   
       </TemplateDefault>
